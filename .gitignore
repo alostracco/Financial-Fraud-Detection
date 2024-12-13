@@ -38,6 +38,8 @@ env/
 *.log
 *.sqlite3
 database.ini
+*.csv
+
 
 # OS-specific files
 .DS_Store
