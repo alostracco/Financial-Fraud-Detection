@@ -1,7 +1,7 @@
 import psycopg2
 
 # Update these values with your actual database connection details
-HOST = "ec2-3-137-210-223.us-east-2.compute.amazonaws.com"
+HOST = "ec2-18-217-36-102.us-east-2.compute.amazonaws.com"
 PORT = 5432
 DATABASE = "madlib_db"
 USER = "postgres"
@@ -21,8 +21,10 @@ def main():
     cur = conn.cursor()
 
     # Execute the query
+    cur.execute("DROP TABLE IF EXISTS myresults_summary CASCADE;")
+    cur.execute("DROP TABLE IF EXISTS myresults CASCADE;")
+    cur.execute("SELECT madlib.logregr_train('mydata','myresults','y','x');")
     cur.execute("SELECT * FROM myresults;")
-
     # Fetch all rows
     rows = cur.fetchall()
 
