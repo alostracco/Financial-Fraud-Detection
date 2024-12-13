@@ -1,5 +1,4 @@
 import pandas as pd
-from sqlalchemy import create_engine
 from database_connection import get_db_connection
 
 def ingest_data(file_path):
